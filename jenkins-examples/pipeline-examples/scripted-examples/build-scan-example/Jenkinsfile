@@ -13,11 +13,11 @@ node {
     }
 
     stage ('Build docker image') {
-        docker.build(ARTIFACTORY_DOCKER_REGISTRY + '/hello-world:latest', 'jenkins-examples/pipeline-examples/resources')
+        docker.build(ARTIFACTORY_DOCKER_REGISTRY + '/alpine:3.3', 'jenkins-examples/pipeline-examples/resources')
     }
 
     stage ('Push image to Artifactory') {
-        buildInfo = rtDocker.push ARTIFACTORY_DOCKER_REGISTRY + '/hello-world:latest', 'docker-local'
+        buildInfo = rtDocker.push ARTIFACTORY_DOCKER_REGISTRY + '/alpine:3.3', 'docker-local'
     }
 
     stage ('Publish build info') {
