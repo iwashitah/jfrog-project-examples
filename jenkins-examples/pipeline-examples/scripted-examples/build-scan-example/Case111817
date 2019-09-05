@@ -32,7 +32,7 @@ node {
 
     stage ('Xray scan') {
       script {
-                sh "curl -v -u admin:password -d '{"artifactoryId": "Artifactory", "buildName": "{$env.JOB_NAME}", "buildNumber": "{$env.BUILD_NUMBER}"}' -H 'Content-type: application/json' -X POST 'http://localhost:8000/api/v1/scanBuild'"
+                sh "curl -v -u admin:password -d '{\"artifactoryId\": \"Artifactory\", \"buildName\": \"{$env.JOB_NAME}\", \"buildNumber\": \"{$env.BUILD_NUMBER}\"}' -H 'Content-type: application/json' -X POST 'http://localhost:8000/api/v1/scanBuild'"
       }
     }
 }
