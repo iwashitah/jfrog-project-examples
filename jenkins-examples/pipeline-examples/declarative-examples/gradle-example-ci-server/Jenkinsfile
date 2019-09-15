@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     stages {
-        stage ('Clone') {
+        stage ('Gitのクローン') {
             steps {
                 git branch: 'master', url: "https://github.com/jfrog/project-examples.git"
             }
@@ -30,7 +30,7 @@ pipeline {
             }
         }
 
-        stage ('Exec Gradle') {
+        stage ('Gradle実行') {
             steps {
                 rtGradleRun (
                     tool: GRADLE_TOOL, // Tool name from Jenkins configuration
@@ -43,7 +43,7 @@ pipeline {
             }
         }
 
-        stage ('Publish build info') {
+        stage ('ビルド情報の発行') {
             steps {
                 rtPublishBuildInfo (
                     serverId: "ARTIFACTORY_SERVER"
