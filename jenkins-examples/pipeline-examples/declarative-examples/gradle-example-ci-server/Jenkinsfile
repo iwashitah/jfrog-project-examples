@@ -8,7 +8,7 @@ pipeline {
             }
         }
 
-        stage ('Artifactory configuration') {
+        stage ('Artifactory設定') {
             steps {
                 rtServer (
                     id: "ARTIFACTORY_SERVER",
