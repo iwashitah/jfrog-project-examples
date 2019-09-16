@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     stages {
-        stage ('Gitのクローン') {
+        stage ('Gitクローン') {
             steps {
                 git branch: 'master', url: "https://github.com/iwashitah/jfrog-project-examples.git"
             }
@@ -43,7 +43,7 @@ pipeline {
             }
         }
 
-        stage ('ビルド情報の発行') {
+        stage ('ビルド情報発行') {
             steps {
                 rtPublishBuildInfo (
                     serverId: "ARTIFACTORY_SERVER"
