@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage ('Gitのクローン') {
             steps {
-                git branch: 'master', url: "https://github.com/iwashitah/project-examples.git"
+                git branch: 'master', url: "https://github.com/iwashitah/jfrog-project-examples.git"
             }
         }
 
