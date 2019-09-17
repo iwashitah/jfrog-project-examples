@@ -6,13 +6,13 @@ pipeline {
     }
 
     stages {
-        stage ('Clone') {
+        stage ('Gitクローン') {
             steps {
                 git branch: 'master', url: "https://github.com/jfrog/project-examples.git"
             }
         }
 
-        stage ('Artifactory configuration') {
+        stage ('Artifactory設定') {
             steps {
                 rtServer (
                     id: "ARTIFACTORY_SERVER",
@@ -35,7 +35,7 @@ pipeline {
             }
         }
 
-        stage ('Config Build Info') {
+        stage ('ビルド情報設定') {
             steps {
                 rtBuildInfo (
                     captureEnv: true,
@@ -45,7 +45,7 @@ pipeline {
             }
         }
 
-        stage ('Exec Gradle') {
+        stage ('Gradle実行') {
             steps {
                 rtGradleRun (
                     usesPlugin: true, // Artifactory plugin already defined in build script
@@ -59,7 +59,7 @@ pipeline {
             }
         }
 
-        stage ('Publish build info') {
+        stage ('ビルド情報発行') {
             steps {
                 rtPublishBuildInfo (
                     serverId: "ARTIFACTORY_SERVER"
