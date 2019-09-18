@@ -69,4 +69,16 @@
             </plugin>
         </plugins>
     </build>
+  <distributionManagement>
+    <repository>
+      <id>central</id>
+      <name>artifactory-releases</name>
+      <url>${url}/artifactory/libs-release</url>
+    </repository>
+    <snapshotRepository>
+      <id>snapshots</id>
+      <name>artifactory-snapshots</name>
+      <url>${url}/artifactory/libs-snapshot</url>
+    </snapshotRepository>
+  </distributionManagement>
 </project>
