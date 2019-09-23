@@ -82,6 +82,9 @@ configurations {
 }
 
 artifactory {
+//add iwashitah because enviroment variables are not set.
+  clientConfig.setIncludeEnvVars(true)
+  clientConfig.info.addEnvironmentProperty('test.adding.dynVar',new java.util.Date().toString())
   contextUrl = 'http://artifactory:8081/artifactory'
   publish {
     repository {
