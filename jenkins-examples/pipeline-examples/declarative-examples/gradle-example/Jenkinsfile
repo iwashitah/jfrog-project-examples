@@ -48,7 +48,7 @@ pipeline {
         stage ('Gradle実行') {
             steps {
                 rtGradleRun (
-                    usesPlugin: true, // Artifactory plugin already defined in build script
+                    usesPlugin: false, // Artifactory plugin already defined in build script
                     tool: GRADLE_TOOL, // Tool name from Jenkins configuration
                     rootDir: "gradle-examples/gradle-example/",
                     buildFile: 'build.gradle',
